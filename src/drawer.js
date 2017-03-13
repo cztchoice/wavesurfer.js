@@ -174,9 +174,9 @@ WaveSurfer.Drawer = {
 
     setHeight: function (height) {
         if (height == this.height) { return; }
-        this.height = height;
+        this.height = height * this.params.pixelRatio;
         this.style(this.wrapper, {
-            height: ~~(this.height / this.params.pixelRatio) + 'px'
+            height: ~~(this.height) + 'px'
         });
         this.updateSize();
     },

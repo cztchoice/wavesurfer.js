@@ -71,7 +71,7 @@ WaveSurfer.util.extend(WaveSurfer.Drawer.Canvas, {
         if (peaks[0] instanceof Array) {
             var channels = peaks;
             if (this.params.splitChannels) {
-                this.setHeight(channels.length * this.params.height * this.params.pixelRatio);
+                this.setHeight(channels.length * this.height);
                 channels.forEach(function(channelPeaks, i) {
                     my.drawBars(channelPeaks, i, start, end);
                 });
@@ -93,7 +93,7 @@ WaveSurfer.util.extend(WaveSurfer.Drawer.Canvas, {
         // A half-pixel offset makes lines crisp
         var $ = 0.5 / this.params.pixelRatio;
         var width = this.width;
-        var height = this.params.height * this.params.pixelRatio;
+        var height = this.height;
         var offsetY = height * channelIndex || 0;
         var halfH = height / 2;
         var length = peaks.length / peakIndexScale;
@@ -132,7 +132,7 @@ WaveSurfer.util.extend(WaveSurfer.Drawer.Canvas, {
         if (peaks[0] instanceof Array) {
             var channels = peaks;
             if (this.params.splitChannels) {
-                this.setHeight(channels.length * this.params.height * this.params.pixelRatio);
+                this.setHeight(channels.length * this.height);
                 channels.forEach(function(channelPeaks, i) {
                     my.drawWave(channelPeaks, i, start, end);
                 });
@@ -155,7 +155,7 @@ WaveSurfer.util.extend(WaveSurfer.Drawer.Canvas, {
 
         // A half-pixel offset makes lines crisp
         var $ = 0.5 / this.params.pixelRatio;
-        var height = this.params.height * this.params.pixelRatio;
+        var height = this.height;
         var offsetY = height * channelIndex || 0;
         var halfH = height / 2;
         var length = ~~(peaks.length / 2);
